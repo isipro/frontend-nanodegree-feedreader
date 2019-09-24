@@ -70,17 +70,19 @@ function init() {
                  });
 
                  if (cb) {
-                     cb();
+                    cb();                    
                  }
+                 
                },
        error: function (result, status, err){
                  //run only the callback without attempting to parse result due to error
                  if (cb) {
-                     cb();
+                    cb();
                  }
                },
        dataType: "json"
      });
+     
  }
 
 /* Google API: Loads the Feed Reader API and defines what function
