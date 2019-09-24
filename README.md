@@ -4,4 +4,5 @@
 * browser.
 * Alternatively, you can host the applicaiton by a local web server or host it online via a remote web server.
 * To host a local web server you can install XAMP, or Live Server ( for Visual Studio Code )
-* or Prevu (https://github.com/Nijikokun/Prevu) for Sublime
+* or Prevu (<https://github.com/Nijikokun/Prevu)> for Sublime
+* at the bottom of the displayed web page you will see the Jasmine output in regards to the written tests
