@@ -74,52 +74,10 @@ $(function() {
             expect(body.classList.contains('menu-hidden')).toBe(true);
         });
 
-        /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
-
-        //  beforeEach(function() {
-        //     spyEvent = spyOnEvent('.menu-icon-link', 'click');
-        // });
-
-        //  it('show/hide on click', function(){
-        //     let body = document.querySelector('body');
-
-        //     let menu = document.querySelector('.menu-icon-link');
-            
-        //      function clickCountFunc(){
-        //         var clickCount = 0;
-
-        //         return function(){
-        //             clickCount++;
-        //             console.log(clickCount);
-    
-        //             if (clickClount == 1){
-        //                 expect(body.classList.contains('menu-hidden')).toBe(false);
-        //                 clickCount = 0;
-        //             }
-        //             else if(clickCount == 2){
-        //                 expect(body.classList.contains('menu-hidden')).toBe(true);
-        //                 clickCount = 0;
-        //             }
-    
-        //         }
-        //     }
-
-        //     menu.addEventListener('click', clickCountFunc());
-
-        //     menu.click();
-        //     menu.click();
-            
-        // });
-
         it('show/hide on click', function(){
             let body = document.querySelector('body');
             let menu = document.querySelector('.menu-icon-link');
                       
-
             // function firstClick(){
             //     expect(body.classList.contains('menu-hidden')).toBe(false);
             // }
@@ -150,16 +108,18 @@ $(function() {
          */
         describe('Initial Entries', function(){
 
-            let feedContainer = document.querySelector('.feed');
+            let entry;
     
             beforeEach(function(done){
                 loadFeed(0, function(){
+                    entry = document.querySelector('.feed .entry');
                     done();
                 });
             });
     
             it('there is an entry in .feed container', function(done){
-                expect(feedContainer.hasChildNodes()).toBe(true);
+                debugger;
+                expect(entry.innerText).toBeDefined();
                 done();
             });
         });
@@ -172,21 +132,22 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
         describe('New Feed Selection', function(){
-
+            //Preserving the html contents of .feed container
             let feedContainer = document.querySelector('.feed');
-    
+            feedContainerHTML = feedContainer.innerHTML;
+
             beforeEach(function(done) {
                 loadFeed(0, function() {
                     done();    
                 });
             });
-            it('content actually changes', function(done) {
-                console.log(feedContainer[0]);
-                expect(feedContainer.firstElementChild.innerText).not.toEqual(feedContainer.lastElementChild.innerText);
+            it('content actually changes', function(done) {                
+               // Comparing the html inside .feed container before and after the load
+                expect(feedContainerHTML).not.toEqual(feedContainer.innerHTML)
+                // console.log('before: ' + feedContainerHTML);
+                // console.log('after: ' + feedContainer.innerHTML);
                 done();
             });
         });
-    
-
 
 }());
