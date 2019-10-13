@@ -146,7 +146,7 @@ $(function() {
                 expect(feedContainerHTML).not.toEqual(feedContainer.innerHTML)
                 // console.log('before: ' + feedContainerHTML);
                 // console.log('after: ' + feedContainer.innerHTML);
-                done();
+                done(); 
             });
         });
 
